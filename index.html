@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello world</title>
+    <script src="js/vue.js"></script>
+    <style>
+        .actavited{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p :class="{actavited:  isRed}" @click="handlePClick">{{fullName}}</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data:   {
+                firstName:  'jiaqi',
+                lastName:   'liu',
+                isRed:  false
+            },
+            methods:    {
+                handlePClick:   function () {
+                    this.isRed = !this.isRed;
+                }
+            },
+            computed:   {
+                fullName:   function () {
+                    return this.firstName + ' ' + this.lastName;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
